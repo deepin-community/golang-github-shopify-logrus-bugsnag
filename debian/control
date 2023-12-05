@@ -1,15 +1,31 @@
-Source: template-repository
-Section: unknown
+Source: golang-github-shopify-logrus-bugsnag
+Maintainer: Debian Go Packaging Team <team+pkg-go@tracker.debian.org>
+Uploaders: Anthony Fok <foka@debian.org>
+Section: golang
+Testsuite: autopkgtest-pkg-go
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Build-Depends: debhelper-compat (= 13),
+               dh-golang,
+               golang-any,
+               golang-github-bugsnag-bugsnag-go-dev,
+               golang-github-sirupsen-logrus-dev
+Standards-Version: 4.5.0
+Vcs-Browser: https://salsa.debian.org/go-team/packages/golang-github-shopify-logrus-bugsnag
+Vcs-Git: https://salsa.debian.org/go-team/packages/golang-github-shopify-logrus-bugsnag.git
+Homepage: https://github.com/Shopify/logrus-bugsnag
+Rules-Requires-Root: no
+XS-Go-Import-Path: github.com/Shopify/logrus-bugsnag
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: golang-github-shopify-logrus-bugsnag-dev
+Architecture: all
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         golang-github-bugsnag-bugsnag-go-dev,
+         golang-github-sirupsen-logrus-dev
+Multi-Arch: foreign
+Description: logrus-bugsnag is a hook that interfaces Logrus with Bugsnag
+ logrus-bugsnag is a hook that allows Logrus
+ (https://github.com/Sirupsen/logrus) to interface with Bugsnag
+ (https://bugsnag.com).
+ .
+ This package contains the source.

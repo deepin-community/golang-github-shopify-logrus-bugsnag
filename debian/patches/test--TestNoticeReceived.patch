@@ -1,0 +1,19 @@
+Last-Update: 2018-06-12
+Forwarded: not-needed
+Bug-Upstream: https://github.com/Shopify/logrus-bugsnag/issues/12
+Author: Dmitry Smirnov <onlyjob@debian.org>
+Description: disable broken test
+
+--- a/bugsnag_test.go
++++ b/bugsnag_test.go
+@@ -33,8 +33,10 @@
+ 	Events []event `json:"events"`
+ }
+ 
+ func TestNoticeReceived(t *testing.T) {
++	t.Skip(":: broken test skipped, see https://github.com/Shopify/logrus-bugsnag/issues/12")
++
+ 	c := make(chan event, 1)
+ 	expectedMessage := "foo"
+ 	expectedMetadataLen := 3
+ 	expectedFields := []string{"animal", "size", "omg"}
